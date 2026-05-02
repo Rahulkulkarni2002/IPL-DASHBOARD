@@ -2,10 +2,9 @@ import streamlit as st
 import polars as pl
 import plotly.express as px
 import sys
+import os
 
-sys.path.append(
-    "/Users/rahulkulkarni/Desktop/personal project/IPL DASHBOARD/IPL-DASHBOARD/scripts"
-)
+sys.path.append(os.path.join(os.path.dirname(__file__), "../scripts"))
 from analysis import *
 
 st.set_page_config(page_title="IPL Analytics Dashboard", page_icon="🏏", layout="wide")
@@ -13,15 +12,14 @@ st.set_page_config(page_title="IPL Analytics Dashboard", page_icon="🏏", layou
 
 @st.cache_data
 def load():
-    return load_data(
-        "/Users/rahulkulkarni/Desktop/personal project/IPL DASHBOARD/IPL-DASHBOARD/data/IPL.csv"
-    )
+    data_path = os.path.join(os.path.dirname(__file__), "../data/IPL.csv")
+    return load_data(data_path)
 
 
 df = load()
 
-st.title("🏏 IPL Analytics Dashboard")
-st.markdown("Ball-by-ball analysis of IPL 2008–2025")
+st.title("IPL Analytics Dashboard")
+st.markdown("Ball-by-ball analysis of IPL 2008-2025")
 
 seasons = sorted(df["season"].unique().to_list())
 selected_season = st.sidebar.selectbox("Select Season", ["All"] + seasons)
@@ -30,7 +28,7 @@ if selected_season != "All":
     df = df.filter(pl.col("season") == selected_season)
 
 st.markdown("---")
-st.header("🏏 Batting Analysis")
+st.header("Batting Analysis")
 col1, col2 = st.columns(2)
 
 with col1:
@@ -90,7 +88,7 @@ with col4:
     st.plotly_chart(fig4, use_container_width=True)
 
 st.markdown("---")
-st.header("🎯 Bowling Analysis")
+st.header("Bowling Analysis")
 col5, col6 = st.columns(2)
 
 with col5:
@@ -122,7 +120,7 @@ with col6:
     st.plotly_chart(fig6, use_container_width=True)
 
 st.markdown("---")
-st.header("🏆 Team Analysis")
+st.header("Team Analysis")
 col7, col8 = st.columns(2)
 
 with col7:
@@ -157,7 +155,7 @@ with col8:
     st.plotly_chart(fig8, use_container_width=True)
 
 st.markdown("---")
-st.header("📈 Season Trends")
+st.header("Season Trends")
 col9, col10 = st.columns(2)
 
 with col9:
@@ -186,5 +184,5 @@ with col10:
 
 st.markdown("---")
 st.markdown(
-    "Analyzing 17 seasons of IPL ball-by-ball data (2008–2025) to uncover player performance trends, team dominance, and how the game has evolved over time. Built with Python, Polars, and Streamlit by Rahul Kulkarni "
+    "Analyzing 17 seasons of IPL ball-by-ball data (2008-2025) to uncover player performance trends, team dominance, and how the game has evolved over time. Built with Python, Polars, and Streamlit by Rahul Kulkarni"
 )
