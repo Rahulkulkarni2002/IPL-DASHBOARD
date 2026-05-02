@@ -7,7 +7,7 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), "../scripts"))
 from analysis import *
 
-st.set_page_config(page_title="IPL Analytics Dashboard", page_icon="🏏", layout="wide")
+st.set_page_config(page_title="IPL Analytics Dashboard", layout="wide")
 
 
 @st.cache_data
@@ -184,5 +184,5 @@ with col10:
 
 st.markdown("---")
 st.markdown(
-    "Analyzing 17 seasons of IPL ball-by-ball data (2008-2025) to uncover player performance trends, team dominance, and how the game has evolved over time. Built with Python, Polars, and Streamlit by Rahul Kulkarni"
+    "Analyzing 17 seasons of IPL ball-by-ball data (2008-2025) to uncover player performance trends, team dominance, and how the game has evolved over time. Built with Python, Polars, and Streamlit by Rahul Kulkarni | MSBA @ UC San Diego"
 )
