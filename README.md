@@ -17,7 +17,7 @@ An interactive analytics dashboard analyzing 17 seasons of IPL ball-by-ball data
 - Top wicket takers and most economical bowlers (min 300 balls bowled)
 - Most catches taken by fielders
 - Team win rates across all seasons
-- Whether winning the toss actually helps win the match
+- Winning the toss gives only a marginal edge — 50.8% match-win rate vs. a 50% baseline across 1,193 matches — challenging the common assumption that the toss meaningfully predicts the result
 - Average runs per match and total sixes per season trend
 
 ## Tech Stack
@@ -28,6 +28,7 @@ An interactive analytics dashboard analyzing 17 seasons of IPL ball-by-ball data
 - Streamlit — web app deployment
 
 ## Project Structure
+```
 IPL-DASHBOARD/
 ├── app/
 │   └── dashboard.py      # Streamlit web app
@@ -36,6 +37,7 @@ IPL-DASHBOARD/
 ├── data/                 # IPL dataset (not tracked - too large)
 ├── notebooks/            # EDA notebook
 └── requirements.txt
+```
 
 ## How to Run
 
@@ -52,7 +54,7 @@ pip install -r requirements.txt
 
 3. Download the dataset from Kaggle:
 https://www.kaggle.com/datasets/chaitu20/ipl-dataset2008-2025
-Place the CSV file in the data/ folder.
+Place the CSV file in the `data/` folder.
 
 4. Run the dashboard:
 ```bash
