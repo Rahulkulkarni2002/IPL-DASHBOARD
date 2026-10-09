@@ -63,7 +63,7 @@ streamlit run app/dashboard.py
 
 ## Live Demo
 
-https://rahulkulkarni2002-ipl-dashboard-appdashboard-h28ghl.streamlit.app/
+https://ipl-dashboard-rahul.streamlit.app/
 
 ## Author
 
